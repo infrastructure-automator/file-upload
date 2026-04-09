@@ -1,5 +1,6 @@
 inputs.ps1
 inputs.local.ps1
+tfplan.binary
 
 # Azure Functions
 function/bin/
