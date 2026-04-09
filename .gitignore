@@ -1,3 +1,14 @@
+inputs.ps1
+inputs.local.ps1
+
+# Azure Functions
+function/bin/
+function/obj/
+function/.python_packages/
+function/local.settings.json
+__pycache__/
+*.pyc
+
 # Local .terraform directories
 .terraform/
 

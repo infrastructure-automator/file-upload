@@ -1,0 +1,30 @@
+# =============================================================================
+# Project Inputs — Email-to-Website File Upload Pipeline
+# =============================================================================
+# Fill in these values, then dot-source before running Terraform:
+#   . .\inputs.ps1
+# =============================================================================
+
+# Azure
+$Azure_Tenant_Id        = "<your-tenant-id>"        # e.g. "00000000-0000-0000-0000-000000000000"
+$Azure_Subscription_Id  = "<your-subscription-id>"  # e.g. "00000000-0000-0000-0000-000000000000"
+$Azure_Location         = "eastus2"
+
+# Short lowercase prefix used to name all resources (<= 8 chars, no dashes)
+$Name_Prefix            = "fileupload"
+
+# Mailbox the Logic App will monitor for incoming attachments
+$Target_Email_Address   = "<your-target-email>"     # e.g. "uploads@yourtenant.onmicrosoft.com"
+$Email_Connector_Type   = "Outlook"
+
+
+# -----------------------------------------------------------------------------
+# Export for Terraform — do not edit below
+# -----------------------------------------------------------------------------
+$env:ARM_TENANT_ID               = $Azure_Tenant_Id
+$env:ARM_SUBSCRIPTION_ID         = $Azure_Subscription_Id
+$env:TF_VAR_location             = $Azure_Location
+$env:TF_VAR_name_prefix          = $Name_Prefix
+$env:TF_VAR_target_email_address = $Target_Email_Address
+
+Write-Host "Inputs loaded for '$Name_Prefix' in $Azure_Location." -ForegroundColor Green
